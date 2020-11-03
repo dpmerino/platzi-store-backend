@@ -1,0 +1,26 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: testing-nqp2724:Mup4dEkdzBfrCJFgZfoRFNDF
+  email:
+    reciepients:
+      - diegopaul7@outlook.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: ddfec4e7-0554-47ff-a26d-f744f319bf30
+  app: platzi-store-backend-dm
+  on:
+    repo: dpmerino/platzi-store-backend
